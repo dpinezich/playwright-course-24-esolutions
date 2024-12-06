@@ -5,14 +5,14 @@ export default defineConfig({
   reporter: 'html',
  
   use: {
-    baseURL: 'http://localhost:3000/',
+    baseURL: 'http://localhost:3001/',
     headless: false,
-    launchOptions: { slowMo: 1000 }
+    launchOptions: { slowMo: 1000 },
   },
   
 
   webServer: {
     command: 'npm start',
-    url: 'http://localhost:3000/'
+    url: 'http://localhost:3001/',
   }
 });
