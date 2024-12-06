@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test("Response / Request", async ({ page }) => {
     
-    const response = await page.goto('');
+    const response = await page.goto('https://playwright.dev/');
 
     if (response === null) return;
 
