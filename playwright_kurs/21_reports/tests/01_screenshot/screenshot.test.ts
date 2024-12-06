@@ -4,14 +4,14 @@ test('home page screenshot', async ({ page }, testInfo) => {
     await page.goto('https://checklyhq.com');
 
     const homeScreenshot = await page.screenshot();
-    testInfo.attach('Home Page', {
+    await testInfo.attach('Home Page', {
         body: homeScreenshot,
         contentType: 'image/png',
     });
 
     await page.click('nav a[href="/customers/"]');
     const customersScreenshot = await page.screenshot();
-    testInfo.attach('Customers Page', {
+    await testInfo.attach('Customers Page', {
         body: customersScreenshot,
         contentType: 'image/png',
     });
