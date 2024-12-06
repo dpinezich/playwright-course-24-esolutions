@@ -6,11 +6,11 @@ const USER = 'dpinezich';
 test.use({
     extraHTTPHeaders: {
         'Accept': 'application/vnd.github.v3+json',
-        'Authorization': `token xxxx`,
+        'Authorization': `token xxx`,
     },
     baseURL: 'https://api.github.com',
 
-})
+});
 
 
 test.beforeAll('Create repo', async ({request}) => {
@@ -19,14 +19,12 @@ test.beforeAll('Create repo', async ({request}) => {
             name: REPO,
         }
     });
-
     expect(response.ok()).toBeTruthy();
-
 });
 
 test('Work with newly created repo', async ({page}) => {
     await page.goto('https://github.com/dpinezich?tab=repositories');
-    await expect(page.getByRole('link', { name: REPO })).toHaveCount(1);
+    await expect(page.getByRole('link', {name: REPO})).toHaveCount(1);
 })
 
 
@@ -63,3 +61,13 @@ test('should create a feature request', async ({request}) => {
         body: 'Feature description'
     }));
 });
+
+/*
+test.afterAll('Delete repo', async ({request}) => {
+    const response = await request.delete(`/repos/${USER}/${REPO}`, {});
+
+    expect(response.ok()).toBeTruthy();
+    expect(response.status() === 204);
+
+});
+*/
